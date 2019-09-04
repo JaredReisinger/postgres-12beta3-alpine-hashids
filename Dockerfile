@@ -12,8 +12,8 @@ RUN set -ex \
 		--directory /usr/src/postgresql/contrib/pg_hashids \
 		--strip-components 1 \
 	&& rm pg_hashids.tar.gz \
-  && cd /usr/src/postgresql/contrib/pg_hashids \
-  && make install
+	&& cd /usr/src/postgresql/contrib/pg_hashids \
+	&& make install
 
 # copy the built output into a clean postgres image
 FROM postgres:12-beta3-alpine
