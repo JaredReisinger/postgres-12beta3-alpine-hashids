@@ -1,10 +1,12 @@
 FROM jaredreisinger/postgres-12beta3-alpine-dev:latest as builder
 
-ENV HASHIDS_VERSION 1.2.1
+#ENV HASHIDS_FORK iCyberon
+ENV HASHIDS_FORK JaredReisinger
+ENV HASHIDS_VERSION 1.2.1-fix
 
 RUN set -ex \
 	\
-	&& wget -O pg_hashids.tar.gz https://github.com/iCyberon/pg_hashids/archive/v$HASHIDS_VERSION.tar.gz \
+	&& wget -O pg_hashids.tar.gz https://github.com/$HASHIDS_FORK/pg_hashids/archive/v$HASHIDS_VERSION.tar.gz \
 	&& mkdir -p /usr/src/postgresql/contrib/pg_hashids \
 	&& tar \
 		--extract \
